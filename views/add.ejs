@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Vehicle</title>
+</head>
+<body>
+  <h1>Add Vehicle</h1>
+  <form action="/vehicles/save" method="post" enctype="multipart/form-data">
+    <table>
+      <tr>
+        <td>Vehicle Brand: </td>
+        <td><input type="text" name="vbrand"></td>
+      </tr>
+      <tr>
+        <td>Category Name: </td>
+        <td>
+          <select name="category_name">
+            <option value="--select--">--select--</option>
+            <% vcategories.forEach(function(cat){ %>
+              <pre><%= cat.category_name %></pre>
+              <option value="<%= cat.category_name %>"><%= cat.category_name %></option>
+            <% }) %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Vehicle Pictue: </td>
+        <td><input type="file" name="image"></td>
+      </tr>
+      <tr>
+        <td>Price: </td>
+        <td><input type="number" name="price"></td>
+      </tr>
+      <tr>
+        <td>Depreciation: </td>
+        <td><input type="number" name="depreciation"></td>
+      </tr>
+      <tr>
+        <td>No of Years</td>
+        <td><input type="number" name="noofyears"></td>
+      </tr>
+      <tr>
+        <td>Total Price</td>
+        <td><input type="number" name="totalprice"></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Add"></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

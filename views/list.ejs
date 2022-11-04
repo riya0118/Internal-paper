@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle List</title>
+</head>
+<body>
+  <h1>Vehicle List</h1>
+  <a href="/vehicles/add">Add Vehicle</a>
+  <table border="1">
+    <tr>
+      <th>Vehicle Brand</th>
+      <th>Category Name</th>
+      <th>Vehicle Picture</th>
+      <th>Price</th>
+      <th>Depreciation</th>
+      <th>No of years</th>
+      <th>Total Price</th>
+      <th colspan="2">Action</th>
+    </tr>
+    <% vehicles.forEach(function(vehicle){ %>
+      <tr>
+        <td><%= vehicle.vehicle_brand %></td>
+        <td><%= vehicle.category_name %></td>
+        <td><img src="../<%= vehicle.vehicle_picture %>" width="200" alt="Vehicle Picture"></td>
+        <td><%= vehicle.price %></td>
+        <td><%= vehicle.depreciation %></td>
+        <td><%= vehicle.no_of_years %></td>
+        <td><%= vehicle.total_price %></td>
+        <td><a href="/vehicles/edit/<%= vehicle._id %>">Edit</a></td>
+        <td><a href="/vehicles/delete/<%= vehicle._id %>">Delete</a></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
