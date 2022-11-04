@@ -18,7 +18,6 @@
       <th>Depreciation</th>
       <th>No of years</th>
       <th>Total Price</th>
-      <th colspan="2">Action</th>
     </tr>
     <% vehicles.forEach(function(vehicle){ %>
       <tr>
@@ -29,8 +28,6 @@
         <td><%= vehicle.depreciation %></td>
         <td><%= vehicle.no_of_years %></td>
         <td><%= vehicle.total_price %></td>
-        <td><a href="/vehicles/edit/<%= vehicle._id %>">Edit</a></td>
-        <td><a href="/vehicles/delete/<%= vehicle._id %>">Delete</a></td>
       </tr>
     <% }) %>
   </table>

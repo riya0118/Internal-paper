@@ -29,14 +29,19 @@ var options = multer.diskStorage({
 var upload = multer({ storage: options });
 
 router.post("/save", upload.single('image'), (req, res) => {
+  let price = req.body.price;
+  let depreciation = req.body.depreciation;
+  let years = req.body.noofyears;
+  totalprice = price * Math.pow((1 - depreciation / 100), years);
+  
   const addVehicle = new Vehicle({
     vehicle_brand: req.body.vbrand,
     category_name: req.body.category_name,
     vehicle_picture: req.file.filename,
-    price: req.body.price,
-    depreciation: req.body.depreciation,
-    no_of_years: req.body.noofyears,
-    total_price: req.body.totalprice
+    price: price,
+    depreciation: depreciation,
+    no_of_years: years,
+    total_price: totalprice
   });
   addVehicle.save((err, vehicle) => {
     if(err) res.status(500).send(err);
